@@ -1,0 +1,137 @@
+
+<html lang="en">
+	<title>Alpha Resto</title>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <script src="js/jquery.js"></script> 
+	<script src="js/jquery.glide.js"></script>
+    
+    <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/animate.css">
+    <script type="text/javascript" src="js/MyJQ.js"></script>
+    <script src="js/jquery.localScroll.min.js" type="text/javascript"></script>
+	<script src="js/jquery.scrollTo.min.js" type="text/javascript"></script> 
+    <script src="js/wow.min.js" type="text/javascript"></script> 
+
+
+<div class="headerwrapper">
+	<div id="header" class="container">
+		<div class="logo"> <a href="index.php"><img src="images/LOGO.png" alt="logo" width="165" height="74"></a> </div> <!--end of Logo-->
+        <nav>
+            <ul id="navigations">
+                <li><a href="index.php">HOME</a></li>
+                <li> <a href="daftar.php">REGISTRASI</a></li>
+                <li><a href="pesan2.html">ORDER</a></li>
+                <li><a href="#bestdishes">MENU</a></li>
+                <li><a href="#copyrights">CONTACT</a></li>
+				<li><a href="tampil_pesan.php">DAFTAR PESAN</a></li>
+            </ul>
+        </nav>
+      </div> <!--end of header-->
+</div> <!-- end of headerwrapper-->
+
+<center>
+<script language="JavaScript" type="text/javascript">
+function jumlah() {
+//var myForm = document.form1;
+var nasigoreng = 15000 * myForm.order1.value;
+var miegoreng = 13000 * myForm.order2.value;
+var baksomalang = 15000 * myForm.order3.value;
+var satepadang = 15000 * myForm.order4.value;
+var esteh = 5000 * myForm.order5.value;
+var kopirobusta = 8000 * myForm.order6.value;
+var hasil = nasigoreng+miegoreng+baksomalang+satepadang+esteh+kopirobusta;
+var jumlah = (nasigoreng/15000)+(miegoreng/13000)+(baksomalang/15000)+(satepadang/15000)+(esteh/5000)+(kopirobusta/8000);
+
+myForm.totalbarang.value = jumlah;
+
+if (hasil > 50000) {
+    myForm.total.value = hasil;
+    myForm.diskon.value = 20000;
+    myForm.bayar.value = hasil - eval(myForm.diskon.value);
+ } else {
+    myForm.total.value = hasil;
+    myForm.diskon.value = 0;
+    document.myForm.bayar.value = hasil - eval(myForm.diskon.value);
+ }
+}
+function resetForm(){
+document.form1.reset();
+}
+</script>
+<form name="myForm" method="post" action="simpan-pesan.php">
+<table border="0">	
+<tr>
+	<td> Username </td>
+	<td> : </td>
+	<td> <input type="text" name="username" placeholder=" Username" ><br></td>
+</tr>
+<tr>
+	<td> Alamat </td>
+	<td> : </td>
+	<td> <input type="text" name="alamat" placeholder=" Alamat" ></td>
+</tr>
+<tr>
+	<td> Tanggal </td>
+	<td> : </td>
+	<td> <input type="date" name=" tanggal"  ></td>
+</tr>
+</table>
+
+<table border="2" cellspacing=0 cellpadding=5 >
+<colgroup align="center">
+<colgroup align="center">
+<colgroup align="center">
+<thead valign="middle">
+<tr>
+<th width="35"><font color="black" size="4">No</font>
+<th width="200"><font color="black" size="4">Makanan/Minuman</font>
+<th width="180"><font color="black" size="4">Harga Satuan</font>
+<th width="100"><font color="black" size="4">Pesan</font>
+</tr>
+<tbody>
+<tr>
+<td>1<td>Nasi Goreng<td><input type="text" value="15000" disabled="true"/><td>
+<input  type="text"  name="order1" placeholder="0" onChange="jumlah()"/>
+</tr>
+<tr>
+<td>2<td>Mie Goreng<td><input type="text" value="13000" disabled="true"/><td>
+<input  type="text"  name="order2" value="0" onChange="jumlah()" />
+</tr>
+<tr>
+<td>3<td>Bakso Malang<td><input  type="text"   value="15000" disabled="true"/> <td>
+<input  type="text"  name="order3" value="0" onChange="jumlah()"/>
+</tr>
+<tr>
+<td>4<td>Sate Padang<td><input  type="text"   value="15000" disabled="true"/>
+<td><input  type="text"  name="order4" value="0" onChange="jumlah()" />
+</tr>
+<tr>
+<td>5<td>Es Teh<td><input  type="text"   value="5000" disabled="true"/> <td>
+<input  type="text"  name="order5" value="0" onChange="jumlah()"/>
+</tr>
+<tr>
+<td>6<td>Kopi Robusta<td><input  type="text"   value="8000" disabled="true"/> <td>
+<input  type="text"  name="order6" value="0" onChange="jumlah()"/>
+</tr>
+<tr>
+<td colspan=3 align="right">Jumlah Total<td><input type="text"  id="total" name="total" value="" />
+</tr>
+<tr>
+<td colspan=3 align="right">Jumlah Total Barang<td><input type="text"  id="totalbarang" name="totalbarang" value="" />
+</tr>
+<tr>
+<td colspan=3 align="right">Diskon<td><input  type="text"  name="diskon"  />
+</tr>
+<tr>
+<td colspan=3 align="right">Jumlah Bayar<td><input type="text" name="bayar" value="" />
+</tr>
+</table>
+<br/>
+<input type="button" value="CANCEL" onClick="resetForm()" />
+<input type="submit" value="PESAN" />
+</form action="tampil_pesan.php">
+
+
+</body>
+</html> 
